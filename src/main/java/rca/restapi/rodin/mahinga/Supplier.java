@@ -19,6 +19,8 @@ public class Supplier {
 
     private String address;
 
+    private Long age;
+
     public Supplier() {};
 
     public Long getId() {
@@ -38,5 +40,12 @@ public class Supplier {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Long getAge() {
+        return age;
+    }
+    public void setAge(Long age) {
+        this.age = age;
     }
 }

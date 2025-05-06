@@ -30,6 +30,7 @@ public class SupplierService{
                 .map(supplier -> {
                     supplier.setSupplierName(uptSupplier.getSupplierName());
                     supplier.setAddress(uptSupplier.getAddress());
+                    supplier.setAge(uptSupplier.getAge());
                    return supplierRepo.save(supplier);
                 })
                 .orElseThrow(()-> new RuntimeException("Supplier not found with id: " + id));
@@ -42,4 +43,14 @@ public class SupplierService{
         supplierRepo.deleteById(id);
     }
 
+    public List<Supplier> findByAddress(String address) {
+        return supplierRepo.findByAddress(address);
+    }
+    public List<Supplier> findByAge(Long age) {
+        return supplierRepo.findByAge(age);
+    }
+
+    public Supplier saveSupplier(Supplier supplier) {
+        return supplierRepo.save(supplier);
+    }
 }
