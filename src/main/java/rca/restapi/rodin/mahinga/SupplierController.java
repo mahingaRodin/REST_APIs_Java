@@ -24,7 +24,7 @@ public class SupplierController {
     }
 
     @GetMapping("/{id}")
-    public Supplier getSupplierById(Long id) {
+    public Supplier getSupplierById(@PathVariable Long id) {
         Optional<Supplier> supp = service.getSupplier(id);
         if(supp.isPresent()) {
             return supp.get();
