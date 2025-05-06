@@ -25,4 +25,14 @@ public class SupplierService{
         return supplier;
     }
 
+    public Supplier updateSupplier(Long id,Supplier uptSupplier) {
+        return supplierRepo.findById(id)
+                .map(supplier -> {
+                    supplier.setSupplierName(uptSupplier.getSupplierName());
+                    supplier.setAddress(uptSupplier.getAddress());
+                   return supplierRepo.save(supplier);
+                })
+                .orElseThrow(()-> new RuntimeException("Supplier not found with id: " + id));
+    }
+
 }
