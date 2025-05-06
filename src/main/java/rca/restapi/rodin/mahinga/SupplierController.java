@@ -43,4 +43,14 @@ public class SupplierController {
             return  ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteSupplier(@PathVariable Long id) {
+        try {
+            service.deleteSupplier(id);
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (RuntimeException ex) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
+    }
 }

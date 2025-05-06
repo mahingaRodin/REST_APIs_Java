@@ -35,4 +35,11 @@ public class SupplierService{
                 .orElseThrow(()-> new RuntimeException("Supplier not found with id: " + id));
     }
 
+    public void deleteSupplier(Long id) {
+        if(!supplierRepo.existsById(id)) {
+            throw new RuntimeException("Supplier not found with id: " + id);
+        }
+        supplierRepo.deleteById(id);
+    }
+
 }
