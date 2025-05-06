@@ -13,6 +13,6 @@ public interface SupplierRepo extends JpaRepository<Supplier, Long> {
     @Query("select s from Supplier as s where s.address=:address")
     List<Supplier> findByAddress(@Param("address") String address);
 
-    @Query("select a from  Supplier as a where a.age=:age")
+    @Query(value = "select a from  Supplier as a where a.age=:age", nativeQuery = true)
     List<Supplier> findByAge(@Param(("age"))Long age);
 }
